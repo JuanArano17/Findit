@@ -3,6 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="start">Start\n</string>
-    <string name="join">Join\n</string>
+    <string name="start">Start Game\n</string>
+    <string name="join">Join Game\n</string>
+    <string name="or">or...</string>
 </resources>

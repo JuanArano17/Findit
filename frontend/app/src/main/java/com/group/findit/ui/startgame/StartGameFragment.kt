@@ -1,20 +1,21 @@
-package com.group.findit.ui.home
+package com.group.findit.ui.startgame
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
-import com.group.findit.databinding.FragmentHomeBinding
 import com.group.findit.R
+import com.group.findit.databinding.FragmentStartGameBinding
 
-class HomeFragment : Fragment() {
+class StartGameFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentStartGameBinding? = null
+
+    // This property is only valid between onCreateView and
+    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,24 +23,15 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val startGameViewModel =
+            ViewModelProvider(this).get(StartGameViewModel::class.java)
+        _binding = FragmentStartGameBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
         // Cargar GIF en el ImageView con Glide
         Glide.with(this)
             .asGif()
             .load(R.drawable.download) // Asegúrate de que el archivo está en res/drawable o res/raw
             .into(binding.gifBackground)
-
-        // Configurar botones
-        binding.buttonStartGame.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_home_to_navigation_start_game)
-        }
-        binding.buttonJoinGame.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_home_to_navigation_join_game)
-        }
 
         return root
     }
