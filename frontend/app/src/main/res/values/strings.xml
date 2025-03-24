@@ -9,4 +9,6 @@
     <string name="game_ID">Game ID</string>
     <string name="player_name">Player Name</string>
     <string name="join_game">Join!</string>
+    <string name="player_count">Player Count</string>
+    <string name="create">Create</string>
 </resources>

@@ -10,4 +10,6 @@
     <string name="game_ID">ID da Partida</string>
     <string name="player_name">Nome do Jogador</string>
     <string name="join_game">Entrar!</string>
+    <string name="player_count">Quantidade de Jogadores</string>
+    <string name="create">Criar</string>
 </resources>
