@@ -30,7 +30,7 @@
         android:id="@+id/appLogo"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:src="@drawable/logo"
+        android:src="@drawable/findit_logo"
         android:contentDescription="FindIt Logo"
         app:layout_constraintTop_toBottomOf="@id/backButton"
         app:layout_constraintStart_toStartOf="parent"

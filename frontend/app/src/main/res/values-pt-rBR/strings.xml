@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FindIt</string>
+    <string name="title_home">Início</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notificações</string>
+    <string name="start">Iniciar Jogo</string>
+    <string name="join">Entrar no Jogo</string>
+    <string name="or">ou...</string>
+    <string name="game_ID">ID da Partida</string>
+    <string name="player_name">Nome do Jogador</string>
+    <string name="join_game">Entrar!</string>
+</resources>

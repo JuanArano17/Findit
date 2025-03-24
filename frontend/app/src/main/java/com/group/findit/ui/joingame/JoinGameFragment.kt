@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
+import com.group.findit.R
 import com.group.findit.databinding.FragmentJoinGameBinding
 
 class JoinGameFragment : Fragment() {
@@ -26,7 +28,10 @@ class JoinGameFragment : Fragment() {
 
         _binding = FragmentJoinGameBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
+        Glide.with(this)
+            .asGif()
+            .load(R.drawable.download)
+            .into(binding.gifBackgroundJoin)
 
         return root
     }

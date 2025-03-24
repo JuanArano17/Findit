@@ -6,4 +6,7 @@
     <string name="start">Start Game\n</string>
     <string name="join">Join Game\n</string>
     <string name="or">or...</string>
+    <string name="game_ID">Game ID</string>
+    <string name="player_name">Player Name</string>
+    <string name="join_game">Join!</string>
 </resources>
