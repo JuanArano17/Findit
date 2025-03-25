@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.group.findit.R
 import com.group.findit.databinding.FragmentStartGameBinding
@@ -32,6 +33,14 @@ class StartGameFragment : Fragment() {
             .asGif()
             .load(R.drawable.download) // Asegúrate de que el archivo está en res/drawable o res/raw
             .into(binding.gifBackground)
+
+        binding.backButton.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_start_to_navigation_home)
+        }
+
+        binding.buttonJoin.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_start_to_navigation_game)
+        }
 
         return root
     }

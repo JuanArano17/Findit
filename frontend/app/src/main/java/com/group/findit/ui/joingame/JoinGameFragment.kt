@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.group.findit.R
 import com.group.findit.databinding.FragmentJoinGameBinding
@@ -32,6 +33,10 @@ class JoinGameFragment : Fragment() {
             .asGif()
             .load(R.drawable.download)
             .into(binding.gifBackgroundJoin)
+
+        binding.backButtonJoin.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_join_to_navigation_home)
+        }
 
         return root
     }

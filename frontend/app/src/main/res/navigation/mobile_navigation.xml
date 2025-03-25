@@ -22,11 +22,35 @@
         android:id="@+id/navigation_start_game"
         android:name="com.group.findit.ui.startgame.StartGameFragment"
         android:label="StartGame"
-        tools:layout="@layout/fragment_start_game" />
+        tools:layout="@layout/fragment_start_game" >
+        <action
+            android:id="@+id/action_navigation_start_to_navigation_home"
+            app:destination="@id/navigation_home"/>
+        <action
+            android:id="@+id/action_navigation_start_to_navigation_game"
+            app:destination="@id/navigation_game"/>
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_join_game"
         android:name="com.group.findit.ui.joingame.JoinGameFragment"
         android:label="JoinGame"
-        tools:layout="@layout/fragment_join_game" />
+        tools:layout="@layout/fragment_join_game" >
+        <action
+            android:id="@+id/action_navigation_join_to_navigation_home"
+            app:destination="@id/navigation_home"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_game"
+        android:name="com.group.findit.ui.game.GameFragment"
+        android:label="Game"
+        tools:layout="@layout/fragment_game" >
+    </fragment>
 </navigation>
+
+
+
+
+
+
