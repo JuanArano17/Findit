@@ -15,4 +15,7 @@
     <string name="exit">Sair</string>
     <string name="score">Pontuação</string>
     <string name="time">Tempo</string>
+    <string name="congratulations">PARABÉNS!</string>
+    <string name="winner">ganhou a partida</string>
+    <string name="scoreboard">Tabela de pontuação</string>
 </resources>

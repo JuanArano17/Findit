@@ -14,4 +14,7 @@
     <string name="exit">Exit</string>
     <string name="score">Score</string>
     <string name="time">Time</string>
+    <string name="congratulations">CONGRATULATIONS!</string>
+    <string name="winner">has won the game</string>
+    <string name="scoreboard">Scoreboard</string>
 </resources>

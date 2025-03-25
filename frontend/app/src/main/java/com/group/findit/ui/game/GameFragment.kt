@@ -27,7 +27,7 @@ class GameFragment: Fragment()  {
     private var _binding: FragmentGameBinding? = null
     private val binding get() = _binding!!
     private lateinit var cameraExecutor: ExecutorService
-    private var tiempo = 30L // 30 segundos
+    private var tiempo = 10L // 30 segundos
     private val handler = android.os.Handler()
     private val actualizador = object : Runnable {
         override fun run() {
@@ -35,6 +35,10 @@ class GameFragment: Fragment()  {
                 tiempo--
                 actualizarCronometro()
                 handler.postDelayed(this, 1000) // Actualiza cada 1 segundo
+            } else {
+                activity?.runOnUiThread {
+                    findNavController().navigate(R.id.action_navigation_game_to_navigation_dashboard)
+                }
             }
         }
     }
