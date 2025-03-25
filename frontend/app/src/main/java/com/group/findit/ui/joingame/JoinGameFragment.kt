@@ -38,6 +38,10 @@ class JoinGameFragment : Fragment() {
             findNavController().navigate(R.id.action_navigation_join_to_navigation_home)
         }
 
+        binding.buttonJoin.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_join_to_navigation_game)
+        }
+
         return root
     }
 

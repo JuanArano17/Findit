@@ -14,17 +14,30 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.group.findit.R
 import com.group.findit.databinding.FragmentGameBinding
 import com.group.findit.ui.home.HomeViewModel
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
+import java.util.logging.Handler
 
 class GameFragment: Fragment()  {
     private var _binding: FragmentGameBinding? = null
     private val binding get() = _binding!!
     private lateinit var cameraExecutor: ExecutorService
+    private var tiempo = 30L // 30 segundos
+    private val handler = android.os.Handler()
+    private val actualizador = object : Runnable {
+        override fun run() {
+            if (tiempo > 0) {
+                tiempo--
+                actualizarCronometro()
+                handler.postDelayed(this, 1000) // Actualiza cada 1 segundo
+            }
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,7 +45,7 @@ class GameFragment: Fragment()  {
         savedInstanceState: Bundle?
     ): View {
         val homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-
+        handler.post(actualizador)
         _binding = FragmentGameBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
@@ -48,7 +61,23 @@ class GameFragment: Fragment()  {
             requestPermissions(REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
 
+        binding.buttonExit.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_game_to_navigation_home)
+        }
+
         return root
+    }
+
+    private fun actualizarCronometro() {
+        val minutos = tiempo / 60
+        var segundos = tiempo % 60
+        val tiempoFormateado = String.format("%02d:%02d", minutos, segundos)
+
+        _binding?.let {
+            it.textTime.text = tiempoFormateado
+        } ?: run {
+            Log.e("GameFragment", "Binding is null, can't update UI")
+        }
     }
 
     private fun startCamera() {

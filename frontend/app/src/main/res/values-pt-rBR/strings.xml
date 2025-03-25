@@ -12,4 +12,7 @@
     <string name="join_game">Entrar!</string>
     <string name="player_count">Quantidade de Jogadores</string>
     <string name="create">Criar</string>
+    <string name="exit">Sair</string>
+    <string name="score">Pontuação</string>
+    <string name="time">Tempo</string>
 </resources>

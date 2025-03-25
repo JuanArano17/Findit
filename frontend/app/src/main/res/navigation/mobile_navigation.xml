@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_navigation_join_to_navigation_home"
             app:destination="@id/navigation_home"/>
+        <action
+            android:id="@+id/action_navigation_join_to_navigation_game"
+            app:destination="@id/navigation_game"/>
     </fragment>
 
     <fragment
@@ -46,6 +49,9 @@
         android:name="com.group.findit.ui.game.GameFragment"
         android:label="Game"
         tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_navigation_game_to_navigation_home"
+            app:destination="@id/navigation_home"/>
     </fragment>
 </navigation>
 
