@@ -17,4 +17,8 @@
     <string name="congratulations">CONGRATULATIONS!</string>
     <string name="winner">has won the game</string>
     <string name="scoreboard">Scoreboard</string>
+    <string name="findit_logo">FindIt Logo</string>
+    <string name="_0">0</string>
+    <string name="nombre">Nombre</string>
+    <string name="return_to_home">Return to Home</string>
 </resources>
