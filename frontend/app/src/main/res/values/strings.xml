@@ -21,4 +21,6 @@
     <string name="_0">0</string>
     <string name="nombre">Nombre</string>
     <string name="return_to_home">Return to Home</string>
+    <string name="nationality">Nationality</string>
+    <string name="age">Age</string>
 </resources>

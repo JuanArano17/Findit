@@ -1,4 +1,9 @@
 package com.group.findit
 
-class FindItApplication {
+import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
+
+@HiltAndroidApp
+
+class FindItApplication: Application() {
 }
