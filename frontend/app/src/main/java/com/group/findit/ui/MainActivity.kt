@@ -3,7 +3,6 @@ package com.group.findit
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.group.findit.databinding.ActivityMainBinding
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
