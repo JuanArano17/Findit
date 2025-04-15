@@ -65,11 +65,20 @@ class GameFragment: Fragment()  {
             requestPermissions(REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
 
+        // Configurar botones
+        binding.buttonTakePhoto.setOnClickListener {
+            takePhoto()
+        }
         binding.buttonExit.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_game_to_navigation_home)
         }
 
         return root
+    }
+
+    private fun takePhoto() {
+        // Lógica para tomar una foto
+
     }
 
     private fun actualizarCronometro() {
