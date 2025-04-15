@@ -23,6 +23,9 @@ app = FastAPI()
 # Cargar el modelo YOLOv8 de forma global
 model = load_yolov8_model("yolov8x.pt")
 
+# Variable global para rastrear el último objeto devuelto
+last_object = None
+
 @app.post("/detection")
 async def detect_object(
     word: str = Form(...), 
@@ -52,8 +55,12 @@ async def detect_object(
 
 @app.get("/object")
 async def get_object():
-    """Endpoint para obtener una palabra aleatoria."""
+    """Endpoint para obtener una palabra aleatoria sin repetir la última."""
+    global last_object
     random_object = random.choice(HOUSE_ITEMS)
+    while random_object == last_object:
+        random_object = random.choice(HOUSE_ITEMS)
+    last_object = random_object
     return {"word": random_object}
 
 if __name__ == "__main__":
