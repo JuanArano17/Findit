@@ -1,4 +1,4 @@
-# SEENOW - Vision Through AI
+# FindIt - The Object Hunt Game API
 
 ## Table of Contents
 - [Introduction](#introduction)
@@ -6,61 +6,85 @@
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
 - [Built With](#built-with)
 - [Authors](#authors)
 - [License](#license)
 
 ## Introduction
 
-SEENOW is an innovative application designed to assist visually impaired users in understanding their surroundings through the power of AI-driven object recognition technology. Our solution leverages advanced machine learning models to verbally articulate the types of objects and their proximity within the user's environment, thereby enhancing their spatial awareness and navigation capabilities.
+FindIt now provides an API that processes images on demand. Users can send an image and a word to check if the object is detected in the image and can request a random target object from the model's classes.
 
 ## Features
 
-- **Real-time Object Recognition:** Fast and accurate identification of various objects in the user's vicinity.
-- **Audio Descriptions:** Clear and concise verbal descriptions of the recognized objects.
-- **Intuitive User Interface:** User-friendly design that is accessible and easy to navigate for visually impaired users.
-- **Offline Functionality:** Core features are available without the need for an internet connection.
-- **Multi-language Support:** Offers support for multiple languages to cater to a global user base.
+- **Object Detection API:** Send an image and a word to verify if the word appears in the detection result.
+- **Random Object Endpoint:** Get one random object name that the model can detect.
+- **Powered by YOLOv8:** Utilizes the advanced YOLOv8 model for object detection.
 
 ## Getting Started
 
-These instructions will guide you through the setup process and demonstrate how to get a copy of SEENOW up and running on your local machine for development and testing purposes.
-
 ### Prerequisites
 
-What things you need to install the software and how to install them:
+Ensure you have the following installed:
 
 ```
 Python 3.9
-PyThorch
-gtts
-playground
-Ultrlytics
+PyTorch
+Ultralytics
+FastAPI
+uvicorn
 ```
 
 ### Installation
 
-Once Python is installed:
+Clone the repository and install the required dependencies:
 
 ```
-pip install Ultralytics
+pip install -r requirements.txt
+pip install fastapi uvicorn
 ```
 
-## Usage
+## API Endpoints
 
-To use SEENOW, run:
+### 1. Detection Endpoint
 
+Endpoint: `/detection` (GET)
+
+Parameters:
+- word: The target object name.
+- file: The image file (.jpg, etc.) to be processed.
+
+Example (using cURL):
 ```
-python IA.py
+curl -X 'GET' \
+  'http://127.0.0.1:8000/detection?word=cellphone' \
+  -F 'file=@/path/to/your/image.jpg'
+```
+Returns:
+```
+{"detected": true}
+```
+
+### 2. Get Object Endpoint
+
+Endpoint: `/object` (GET)
+
+Returns a random object name (word) that can be detected.
+
+Example (using cURL):
+```
+curl -X 'GET' 'http://127.0.0.1:8000/object'
+```
+Returns:
+```
+{"word": "cellphone"}
 ```
 
 ## Built With
 
-- [TensorFlow](https://www.tensorflow.org/) - An open-source machine learning framework used for object recognition models.
+- [FastAPI](https://fastapi.tiangolo.com/) - The web framework used.
+- [Ultralytics](https://ultralytics.com/) - Used for object detection models.
 - [Python](https://www.python.org/) - The programming language used for backend development.
-- [React Native](https://reactnative.dev/) - A framework for building native apps using React.
-
 
 ## Authors
 
@@ -68,8 +92,6 @@ python IA.py
 - **Sofia Alejandra Prieto** - *Feature Implementation* - [Sofia Prieto](https://github.com/SofiaPrieto)
 - **Sebastian Portillo** - *Testing and QA* - [Sebastian Portillo](https://github.com/SebaPortill0)
 - **Gianluca Zinni** - *Documentation* - [Gianluca Zinni](https://github.com/GianlucaZinni)
-
-See also the list of [contributors](https://github.com/YourUsername/SEENOW/contributors) who participated in this project.
 
 ## License
 
