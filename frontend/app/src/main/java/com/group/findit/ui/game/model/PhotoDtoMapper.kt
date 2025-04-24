@@ -1,6 +1,6 @@
 package com.group.findit.ui.game.model
 
-import com.group.findit.ui.domain.model.Participant
+import com.group.findit.ui.domain.model.Photo
 import retrofit2.Response
 import java.io.IOException
 

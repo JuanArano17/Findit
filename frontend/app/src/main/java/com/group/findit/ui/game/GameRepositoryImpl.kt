@@ -7,6 +7,7 @@ import com.group.findit.ui.data.game.GameDataSourceImpl
 import com.group.findit.ui.domain.model.Photo
 import com.group.findit.ui.game.model.toDomain
 import com.group.findit.ui.utils.NoInternetException
+import retrofit2.Response
 import javax.inject.Inject
 
 class GameRepositoryImpl @Inject constructor(
@@ -35,4 +36,8 @@ class GameRepositoryImpl @Inject constructor(
         // Convertir la respuesta en dominio
         return response.toDomain()
     }
+}
+
+private fun <T> Response<T>.toDomain(): Result<T> {
+    TODO("Not yet implemented")
 }

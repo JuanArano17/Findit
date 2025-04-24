@@ -14,14 +14,25 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.group.findit.R
 import com.group.findit.databinding.FragmentGameBinding
+import com.group.findit.ui.data.game.model.ObjectResponse
 import com.group.findit.ui.home.HomeViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import java.io.File
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import java.util.logging.Handler
+import androidx.lifecycle.viewModelScope
+import com.group.findit.ui.data.game.ApiClient
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class GameFragment: Fragment()  {
     private var _binding: FragmentGameBinding? = null
@@ -29,6 +40,9 @@ class GameFragment: Fragment()  {
     private lateinit var cameraExecutor: ExecutorService
     private var tiempo = 10L // 30 segundos
     private val handler = android.os.Handler()
+    private val _objectResponse = MutableStateFlow<ObjectResponse?>(null)
+    val objectResponse: StateFlow<ObjectResponse?> = _objectResponse
+
     private val actualizador = object : Runnable {
         override fun run() {
             if (tiempo > 0) {
@@ -43,6 +57,21 @@ class GameFragment: Fragment()  {
         }
     }
 
+    fun fetchDetection() {
+        lifecycleScope.launch {
+            try {
+                val response = ApiClient.apiService.getObject()
+                _objectResponse.value = response
+                binding.textGame.text = response.word
+            } catch (e: Exception) {
+                _objectResponse.value = null
+                binding.textGame.text = "Error"
+                Log.e("API_CALL", "Error al llamar la API: ${e.message}", e)
+            }
+        }
+    }
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -53,6 +82,7 @@ class GameFragment: Fragment()  {
         _binding = FragmentGameBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        fetchDetection();
         Glide.with(this)
             .asGif()
             .load(R.drawable.download)
@@ -72,6 +102,7 @@ class GameFragment: Fragment()  {
         binding.buttonExit.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_game_to_navigation_home)
         }
+
 
         return root
     }

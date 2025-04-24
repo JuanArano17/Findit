@@ -5,6 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/buttonTakePhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="60dp"
+        android:text="Enviar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/gifBackgroundGame"
         android:layout_width="match_parent"
@@ -61,8 +71,8 @@
         android:id="@+id/textGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/irishgrover"
         android:text="MOBIL!"
         android:textColor="#FF78E6"
