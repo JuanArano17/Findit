@@ -2,4 +2,6 @@
 yolov8x.pt
 yolov5s.pt
 myenv/
+collected_images/
+training/
 __pycache__/

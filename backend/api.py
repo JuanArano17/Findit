@@ -5,7 +5,9 @@ import uvicorn
 import cv2
 import numpy as np
 import random
-from AI import load_yolov8_model
+import os
+from recognition_model import load_yolov8_model
+from data_collection import save_image_for_training
 
 HOUSE_ITEMS = [
     'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'bottle',
@@ -20,8 +22,18 @@ HOUSE_ITEMS = [
 
 app = FastAPI()
 
-# Cargar el modelo YOLOv8 de forma global
-model = load_yolov8_model("yolov8x.pt")
+# Dictionary to store specific models for trained objects
+trained_models = {}
+
+def load_appropriate_model(word: str):
+    """Load fine-tuned model if available, otherwise use default model"""
+    if word not in trained_models:
+        model_path = f"models/findit_{word}.pt"
+        if os.path.exists(model_path):
+            trained_models[word] = load_yolov8_model(model_path)
+        else:
+            trained_models[word] = load_yolov8_model("yolov8x.pt")
+    return trained_models[word]
 
 # Variable global para rastrear el último objeto devuelto
 last_object = None
@@ -32,6 +44,8 @@ async def detect_object(
     file: UploadFile = File(...)
 ):
     """Endpoint para enviar una imagen JPEG y una palabra a detectar en la imagen."""
+    # Use appropriate model for the word
+    model = load_appropriate_model(word.lower())
 
     # Leer el archivo de imagen y convertirlo en un array de OpenCV
     contents = await file.read()
@@ -42,16 +56,28 @@ async def detect_object(
     
     result = model.predict(img, conf=0.25)
     detected = False
+    confidence = 0.0
+    
     try:
         # Procesar el primer resultado para una predicción estática
         if result and hasattr(result[0], 'boxes') and result[0].boxes is not None:
-            for cls in result[0].boxes.cls:
+            for i, cls in enumerate(result[0].boxes.cls):
                 if model.names[int(cls)].lower() == word.lower():
                     detected = True
+                    confidence = float(result[0].boxes.conf[i])
+                    print(f"Detected {model.names[int(cls)]} with confidence {confidence}")
+                    # Si la confianza es mayor al 50%, guardamos la imagen para entrenamiento
+                    if confidence >= 0.5:
+                        save_image_for_training(img, word.lower())
                     break
     except Exception as e:
         return JSONResponse(status_code=500, content={"error": str(e)})
-    return {"detected": detected}
+    
+    return {
+        "detected": detected,
+        "confidence": float(confidence),
+        "saved_for_training": confidence >= 0.5
+    }
 
 @app.get("/object")
 async def get_object():
