@@ -1,0 +1,165 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ui.home.HomeFragment">
+
+    <!-- ImageView que contiene el GIF -->
+    <ImageView
+        android:id="@+id/gifBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop" />
+
+    <!-- Logo principal -->
+
+    <!-- Texto "Nombre de jugador" -->
+
+    <ImageView
+        android:id="@+id/appLogo"
+        android:layout_width="403dp"
+        android:layout_height="356dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/findit_logo"
+        android:src="@drawable/findit_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gifBackground" />
+
+    <!-- Edad -->
+    <TextView
+        android:id="@+id/textPlayerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/irishgrover"
+        android:text="@string/player_name"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.711"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/playerNameInput"
+        android:layout_width="248dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/irishgrover"
+        android:padding="10dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.751"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textPlayerName" />
+
+    <!-- Nacionalidad -->
+    <TextView
+        android:id="@+id/textAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/irishgrover"
+        android:text="@string/age"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.686"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/playerNameInput" />
+
+    <TextView
+        android:id="@+id/ageInput"
+        android:layout_width="110dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="1dp"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/irishgrover"
+        android:padding="10dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.708"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textAge" />
+
+    <TextView
+        android:id="@+id/textNationality"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/irishgrover"
+        android:text="@string/nationality"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.69"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ageInput" />
+
+    <!-- Botón de "Unirse" -->
+    <TextView
+        android:id="@+id/nationalityInput"
+        android:layout_width="248dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/irishgrover"
+        android:padding="10dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.766"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textNationality" />
+
+    <!-- Imagen de regresar -->
+
+    <Button
+        android:id="@+id/buttonJoin"
+        android:layout_width="163dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/irishgrover"
+        android:padding="12dp"
+        android:text="@string/create"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.746"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nationalityInput" />
+
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="34dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/return_to_home"
+        android:src="@drawable/backbutton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

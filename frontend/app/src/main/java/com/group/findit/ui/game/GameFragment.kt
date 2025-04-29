@@ -23,22 +23,17 @@ import com.group.findit.ui.data.game.model.ObjectResponse
 import com.group.findit.ui.home.HomeViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import java.io.File
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
-import java.util.logging.Handler
-import androidx.lifecycle.viewModelScope
 import com.group.findit.ui.data.game.ApiClient
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+
 
 class GameFragment: Fragment()  {
     private var _binding: FragmentGameBinding? = null
     private val binding get() = _binding!!
     private lateinit var cameraExecutor: ExecutorService
-    private var tiempo = 20L // 30 segundos
+    private var tiempo = 8L // 30 segundos
     private val handler = android.os.Handler()
     private val _objectResponse = MutableStateFlow<ObjectResponse?>(null)
     val objectResponse: StateFlow<ObjectResponse?> = _objectResponse
@@ -62,16 +57,21 @@ class GameFragment: Fragment()  {
             try {
                 val response = ApiClient.apiService.getObject()
                 _objectResponse.value = response
-                Log.e("API_CALL", "Error al llamar la API: ${_objectResponse.value}")
+                Log.e("API_CALL", "Respuesta de la API: ${_objectResponse.value}")
 
-                binding.textGame.text = response.word
+                _binding?.let { safeBinding ->
+                    safeBinding.textGame.text = response.word
+                }
             } catch (e: Exception) {
                 _objectResponse.value = null
-                binding.textGame.text = "Error"
+                _binding?.let { safeBinding ->
+                    safeBinding.textGame.text = "Error"
+                }
                 Log.e("API_CALL", "Error al llamar la API: ${e.message}", e)
             }
         }
     }
+
 
 
     override fun onCreateView(
