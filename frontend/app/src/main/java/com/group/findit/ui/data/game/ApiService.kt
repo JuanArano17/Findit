@@ -18,6 +18,6 @@ interface ApiService {
         @Part file: MultipartBody.Part
     ): DetectionResponse
 
-    @GET("object")
+    @GET("api/")
     suspend fun getObject(): ObjectResponse
 }
