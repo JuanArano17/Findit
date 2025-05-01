@@ -40,9 +40,9 @@ class StartGameFragment : Fragment() {
             .load(R.drawable.download) // Asegúrate de que el archivo está en res/drawable o res/raw
             .into(binding.gifBackground)
 
-        startGameViewModel.getNewParticipant()
+       // startGameViewModel.getNewParticipant()
 
-        viewLifecycleOwner.lifecycleScope.launch {
+     /*   viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 startGameViewModel.participant.collect { participant ->
                     binding.playerNameInput.text = participant?.name
@@ -51,6 +51,8 @@ class StartGameFragment : Fragment() {
                 }
             }
         }
+      */
+
         binding.backButton.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_start_to_navigation_home)
         }
@@ -59,8 +61,8 @@ class StartGameFragment : Fragment() {
             val nombreJugador = binding.playerNameInput.text.toString()
             val IDJuego = binding.idInput?.text.toString()
             val bundle = Bundle()
-            bundle.putString("playerName", nombreJugador)
-            bundle.putString("IDGame", IDJuego)
+            bundle.putString("playerNameSG", nombreJugador)
+            bundle.putString("IDGameSG", IDJuego)
             findNavController().navigate(R.id.action_navigation_start_to_navigation_game,bundle)
         }
 

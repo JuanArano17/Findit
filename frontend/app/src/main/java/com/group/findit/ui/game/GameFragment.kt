@@ -2,7 +2,6 @@ package com.group.findit.ui.game
 
 import android.Manifest
 import android.content.Context
-import android.content.Context.MODE_PRIVATE
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
@@ -48,7 +47,9 @@ class GameFragment: Fragment()  {
                 handler.postDelayed(this, 1000) // Actualiza cada 1 segundo
             } else {
                 activity?.runOnUiThread {
-                    val idGame = arguments?.getString("IDGame") ?: "SinID"
+                    var idGame = arguments?.getString("IDGame") ?: "SinID"
+                    if (idGame == "SinID")
+                        idGame = arguments?.getString("IDGameSG") ?: "SinID"
                     val bundle = Bundle()
                     bundle.putString("IDGame", idGame)
                     findNavController().navigate(R.id.action_navigation_game_to_navigation_dashboard, bundle)
@@ -103,21 +104,23 @@ class GameFragment: Fragment()  {
         }
         val prefs = requireContext().getSharedPreferences("puntuaciones", Context.MODE_PRIVATE)
         val playerName = arguments?.getString("playerName") ?: "SinNombre"
-        val username = playerName
         val idGame = arguments?.getString("IDGame") ?: "SinID"
-        val key = "$playerName:$idGame"
+        val playerNameSG = arguments?.getString("playerNameSG") ?: "SinNombre"
+        val idGameSG = arguments?.getString("IDGameSG") ?: "SinID"
+        var key = "$playerName:$idGame"
+        if (playerName =="SinNombre")
+            key = "$playerNameSG:$idGameSG"
         var score = prefs.getInt(key, 0)
         Log.d("Juagdor"," $key ")
 
         binding.buttonTakePhoto.setOnClickListener {
             takePhoto()
             score += 10
-            val key = "$playerName:$idGame"
             prefs.edit().putInt(key, score).apply()
             binding.textScore.text = "$score"
         }
         binding.buttonExit.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_game_to_navigation_dashboard)
+            findNavController().navigate(R.id.action_navigation_game_to_navigation_home)
         }
 
 

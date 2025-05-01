@@ -38,8 +38,9 @@ class DashboardFragment: Fragment() {
         val prefs = requireContext().getSharedPreferences("puntuaciones", Context.MODE_PRIVATE)
         val allScores = prefs.all  // Map<String, *>
 
-        val idGame = arguments?.getString("IDGame") ?: "SinID"
-
+        var idGame = arguments?.getString("IDGame") ?: "SinID"
+        if(idGame == "SinID")
+            idGame = arguments?.getString("IDGameSG") ?: "SinID"
         var topPlayer = ""
         var maxScore = Int.MIN_VALUE
 
@@ -89,7 +90,7 @@ class DashboardFragment: Fragment() {
 
     override fun onDestroyView() {
         val prefs = requireContext().getSharedPreferences("puntuaciones", Context.MODE_PRIVATE)
-        prefs.edit().clear().apply()
+       // prefs.edit().clear().apply()
         super.onDestroyView()
         _binding = null
     }

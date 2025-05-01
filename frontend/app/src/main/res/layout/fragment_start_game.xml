@@ -47,7 +47,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appLogo" />
 
-    <TextView
+    <EditText
         android:id="@+id/playerNameInput"
         android:layout_width="248dp"
         android:layout_height="56dp"
@@ -99,7 +99,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/playerNameInput" />
 
-    <TextView
+    <EditText
         android:id="@+id/idInput"
         android:layout_width="110dp"
         android:layout_height="56dp"
@@ -117,7 +117,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textAge" />
 
-    <TextView
+    <EditText
         android:id="@+id/ageInput"
         android:layout_width="110dp"
         android:layout_height="56dp"
@@ -151,7 +151,7 @@
         app:layout_constraintTop_toBottomOf="@+id/idInput" />
 
     <!-- Botón de "Unirse" -->
-    <TextView
+    <EditText
         android:id="@+id/nationalityInput"
         android:layout_width="248dp"
         android:layout_height="56dp"
