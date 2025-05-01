@@ -90,7 +90,7 @@ class DashboardFragment: Fragment() {
 
     override fun onDestroyView() {
         val prefs = requireContext().getSharedPreferences("puntuaciones", Context.MODE_PRIVATE)
-       // prefs.edit().clear().apply()
+        prefs.edit().clear().apply()
         super.onDestroyView()
         _binding = null
     }
