@@ -117,8 +117,6 @@ class GameFragment: Fragment()  {
                 _detectionResponse.value = response
                 Log.e("API_CALL", "Respuesta de la API Detection: ${_detectionResponse.value}")
                 val prefs = requireContext().getSharedPreferences("puntuaciones", Context.MODE_PRIVATE)
-               // var updatedScore = score
-
                 val playerName = arguments?.getString("playerName") ?: "SinNombre"
                 val idGame = arguments?.getString("IDGame") ?: "SinID"
                 val playerNameSG = arguments?.getString("playerNameSG") ?: "SinNombre"
@@ -130,12 +128,11 @@ class GameFragment: Fragment()  {
 
                 if (response.detected == true) {
                     score += 10
-                    prefs.edit().putInt(key, score).apply()
                     binding.textScore.text = "$score"
                     fetchObjection()
                     Log.d("SCORE", "Puntos actualizados: $score")
                 }
-
+                prefs.edit().putInt(key, score).apply()
             } catch (e: Exception) {
                 _objectResponse.value = null
                 _binding?.let { it.textGame.text = "Error" }
@@ -177,8 +174,16 @@ class GameFragment: Fragment()  {
         binding.buttonExit.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_game_to_navigation_home)
         }
-
-
+        val prefs2 = requireContext().getSharedPreferences("puntuaciones", Context.MODE_PRIVATE)
+        val playerName = arguments?.getString("playerName") ?: "SinNombre"
+        val idGame = arguments?.getString("IDGame") ?: "SinID"
+        val playerNameSG = arguments?.getString("playerNameSG") ?: "SinNombre"
+        val idGameSG = arguments?.getString("IDGameSG") ?: "SinID"
+        var key = "$playerName:$idGame"
+        if (playerName =="SinNombre")
+            key = "$playerNameSG:$idGameSG"
+        var score = prefs2.getInt(key, 0)
+        prefs2.edit().putInt(key, score).apply()
         return root
     }
 
