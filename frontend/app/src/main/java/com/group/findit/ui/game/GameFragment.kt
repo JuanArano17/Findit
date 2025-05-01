@@ -132,6 +132,7 @@ class GameFragment: Fragment()  {
                     score += 10
                     prefs.edit().putInt(key, score).apply()
                     binding.textScore.text = "$score"
+                    fetchObjection()
                     Log.d("SCORE", "Puntos actualizados: $score")
                 }
 
