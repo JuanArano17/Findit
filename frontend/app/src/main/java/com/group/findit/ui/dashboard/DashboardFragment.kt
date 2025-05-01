@@ -1,6 +1,8 @@
 package com.group.findit.ui.dashboard
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,20 +34,62 @@ class DashboardFragment: Fragment() {
         binding.backButton.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_dashboard_to_navigation_home)
         }
+
+        val prefs = requireContext().getSharedPreferences("puntuaciones", Context.MODE_PRIVATE)
+        val allScores = prefs.all  // Map<String, *>
+
+        val idGame = arguments?.getString("IDGame") ?: "SinID"
+
+        var topPlayer = ""
+        var maxScore = Int.MIN_VALUE
+
+        for ((key, value) in allScores) {
+            if (value is Int && key.endsWith(":$idGame")) {
+                val playerName = key.substringBefore(":")  // Extrae el nombre del jugador
+                if (value > maxScore) {
+                    maxScore = value
+                    topPlayer = playerName
+                }
+            }
+        }
+
+        binding.textName.text = topPlayer
+        Log.d("PUNTUACIONES", "Top player: $topPlayer con $maxScore puntos en juego $idGame")
+
         setupRecyclerView()
         return root
     }
 
     private fun setupRecyclerView() {
-        val nombres = listOf("Maria","Vane", "Juan", "Vini", "Julian")
-        val puntajes = listOf(176,154, 75, 48, 20)
+        val prefs = requireContext().getSharedPreferences("puntuaciones", Context.MODE_PRIVATE)
+        val allScores = prefs.all  // Map<String, *>
+
+        val idGame = arguments?.getString("IDGame") ?: return
+
+        val filteredScores = allScores.mapNotNull { entry ->
+            val key = entry.key // formato: "nombre:id"
+            val score = entry.value as? Int ?: return@mapNotNull null
+
+            val parts = key.split(":")
+            if (parts.size == 2 && parts[1] == idGame) {
+                val nameOnly = parts[0]
+                nameOnly to score
+            } else null
+        }
+
+        val sortedScores = filteredScores.sortedByDescending { it.second }
+        val nombres = sortedScores.map { it.first }
+        val puntajes = sortedScores.map { it.second }
+
         val adapter = ScoreAdapter(nombres, puntajes)
         binding.recyclerViewScores.layoutManager = LinearLayoutManager(requireContext())
-        binding.recyclerViewScores.adapter = ScoreAdapter(nombres, puntajes)
-        adapter.notifyDataSetChanged()
+        binding.recyclerViewScores.adapter = adapter
     }
 
+
     override fun onDestroyView() {
+        val prefs = requireContext().getSharedPreferences("puntuaciones", Context.MODE_PRIVATE)
+        prefs.edit().clear().apply()
         super.onDestroyView()
         _binding = null
     }

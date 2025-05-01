@@ -46,7 +46,7 @@ class StartGameFragment : Fragment() {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 startGameViewModel.participant.collect { participant ->
                     binding.playerNameInput.text = participant?.name
-                    binding.ageInput.text = participant?.age.toString()
+                    binding.ageInput?.text = participant?.age.toString()
                     binding.nationalityInput.text = participant?.nat
                 }
             }
@@ -56,7 +56,12 @@ class StartGameFragment : Fragment() {
         }
 
         binding.buttonJoin.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_start_to_navigation_game)
+            val nombreJugador = binding.playerNameInput.text.toString()
+            val IDJuego = binding.idInput?.text.toString()
+            val bundle = Bundle()
+            bundle.putString("playerName", nombreJugador)
+            bundle.putString("IDGame", IDJuego)
+            findNavController().navigate(R.id.action_navigation_start_to_navigation_game,bundle)
         }
 
         return root

@@ -1,6 +1,8 @@
 package com.group.findit.ui.game
 
 import android.Manifest
+import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
@@ -46,7 +48,10 @@ class GameFragment: Fragment()  {
                 handler.postDelayed(this, 1000) // Actualiza cada 1 segundo
             } else {
                 activity?.runOnUiThread {
-                    findNavController().navigate(R.id.action_navigation_game_to_navigation_dashboard)
+                    val idGame = arguments?.getString("IDGame") ?: "SinID"
+                    val bundle = Bundle()
+                    bundle.putString("IDGame", idGame)
+                    findNavController().navigate(R.id.action_navigation_game_to_navigation_dashboard, bundle)
                 }
             }
         }
@@ -96,13 +101,23 @@ class GameFragment: Fragment()  {
         } else {
             requestPermissions(REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
+        val prefs = requireContext().getSharedPreferences("puntuaciones", Context.MODE_PRIVATE)
+        val playerName = arguments?.getString("playerName") ?: "SinNombre"
+        val username = playerName
+        val idGame = arguments?.getString("IDGame") ?: "SinID"
+        val key = "$playerName:$idGame"
+        var score = prefs.getInt(key, 0)
+        Log.d("Juagdor"," $key ")
 
-        // Configurar botones
         binding.buttonTakePhoto.setOnClickListener {
             takePhoto()
+            score += 10
+            val key = "$playerName:$idGame"
+            prefs.edit().putInt(key, score).apply()
+            binding.textScore.text = "$score"
         }
         binding.buttonExit.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_game_to_navigation_home)
+            findNavController().navigate(R.id.action_navigation_game_to_navigation_dashboard)
         }
 
 

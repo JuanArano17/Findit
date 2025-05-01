@@ -39,9 +39,13 @@ class JoinGameFragment : Fragment() {
         }
 
         binding.buttonJoin.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_join_to_navigation_game)
+            val nombreJugador = binding.playerName.text.toString()
+            val IDJuego = binding.gameId.text.toString()
+            val bundle = Bundle()
+            bundle.putString("playerName", nombreJugador)
+            bundle.putString("IDGame", IDJuego)
+            findNavController().navigate(R.id.action_navigation_join_to_navigation_game, bundle)
         }
-
         return root
     }
 
