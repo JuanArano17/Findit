@@ -97,17 +97,14 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fbc3cfa9-9df7-40ff-a1f0-86f2d0432e5d" name="Changes" comment="Arreglado tbm para start game">
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/network_security_config.xml" afterDir="false" />
+    <list default="true" id="fbc3cfa9-9df7-40ff-a1f0-86f2d0432e5d" name="Changes" comment="Pude conectar la API, objection funciona">
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/ApiClient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/ApiClient.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/ApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/ApiService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/DetectionRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/DetectionRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/GameDataSourceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/GameDataSourceImpl.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/startgame/StartGameDataSourceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/startgame/StartGameDataSourceImpl.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/game/GameFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/game/GameFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_join_game.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_join_game.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -463,7 +460,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746106774773</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Pude conectar la API, objection funciona">
+      <option name="closed" value="true" />
+      <created>1746116122771</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1746116122771</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -476,7 +481,8 @@
     <MESSAGE value="Hecho rotacion de pantalla (no esta tan lindo pero bueno)" />
     <MESSAGE value="Cada jugador tiene puntaje y las partidas son por numero de ID" />
     <MESSAGE value="Arreglado tbm para start game" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arreglado tbm para start game" />
+    <MESSAGE value="Pude conectar la API, objection funciona" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pude conectar la API, objection funciona" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -489,15 +495,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-function">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/startgame/StartGameDataSourceImpl.kt</url>
-          <line>12</line>
-          <properties class="com.group.findit.ui.data.startgame.StartGameDataSourceImpl" method="getParticipant">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

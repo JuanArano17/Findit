@@ -3,6 +3,7 @@ package com.group.findit.ui.game
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,9 +11,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.camera.core.Camera
 import androidx.camera.core.CameraSelector
+import androidx.camera.core.ImageCapture
+import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -27,7 +31,15 @@ import kotlinx.coroutines.flow.StateFlow
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import com.group.findit.ui.data.game.ApiClient
+import com.group.findit.ui.data.game.model.DetectionResponse
 import kotlinx.coroutines.launch
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import java.io.File
+import java.io.FileOutputStream
+import okhttp3.RequestBody.Companion.toRequestBody
+
 
 
 class GameFragment: Fragment()  {
@@ -38,6 +50,10 @@ class GameFragment: Fragment()  {
     private val handler = android.os.Handler()
     private val _objectResponse = MutableStateFlow<ObjectResponse?>(null)
     val objectResponse: StateFlow<ObjectResponse?> = _objectResponse
+    private val _detectionResponse = MutableStateFlow<DetectionResponse?>(null)
+    val detectionResponse: StateFlow<DetectionResponse?> = _detectionResponse
+    private lateinit var imageCapture: ImageCapture
+
 
     private val actualizador = object : Runnable {
         override fun run() {
@@ -58,12 +74,12 @@ class GameFragment: Fragment()  {
         }
     }
 
-    fun fetchDetection() {
+    fun fetchObjection() {
         lifecycleScope.launch {
             try {
                 val response = ApiClient.apiService.getObject()
                 _objectResponse.value = response
-                Log.e("API_CALL", "Respuesta de la API: ${_objectResponse.value}")
+                Log.e("API_CALL", "Respuesta de la API Objection: ${_objectResponse.value}")
 
                 _binding?.let { safeBinding ->
                     safeBinding.textGame.text = response.word
@@ -78,6 +94,58 @@ class GameFragment: Fragment()  {
         }
     }
 
+    fun fetchDetection(imageUri: Uri) {
+        lifecycleScope.launch {
+            try {
+                val word = binding.textGame.text.toString()
+
+                val contentResolver = requireContext().contentResolver
+                val inputStream = contentResolver.openInputStream(imageUri)
+                val file = File(requireContext().cacheDir, "image.jpg")
+                inputStream?.use { input ->
+                    FileOutputStream(file).use { output ->
+                        input.copyTo(output)
+                    }
+                }
+
+                val requestWord = word.toRequestBody("text/plain".toMediaTypeOrNull())
+                val requestFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
+                val body = MultipartBody.Part.createFormData("file", file.name, requestFile)
+
+                val response = ApiClient.apiService.getDetection(requestWord, body)
+
+                _detectionResponse.value = response
+                Log.e("API_CALL", "Respuesta de la API Detection: ${_detectionResponse.value}")
+                val prefs = requireContext().getSharedPreferences("puntuaciones", Context.MODE_PRIVATE)
+               // var updatedScore = score
+
+                val playerName = arguments?.getString("playerName") ?: "SinNombre"
+                val idGame = arguments?.getString("IDGame") ?: "SinID"
+                val playerNameSG = arguments?.getString("playerNameSG") ?: "SinNombre"
+                val idGameSG = arguments?.getString("IDGameSG") ?: "SinID"
+                var key = "$playerName:$idGame"
+                if (playerName =="SinNombre")
+                    key = "$playerNameSG:$idGameSG"
+                var score = prefs.getInt(key, 0)
+
+                if (response.detected == true) {
+                    score += 10
+                    prefs.edit().putInt(key, score).apply()
+                    binding.textScore.text = "$score"
+                    Log.d("SCORE", "Puntos actualizados: $score")
+                }
+
+            } catch (e: Exception) {
+                _objectResponse.value = null
+                _binding?.let { it.textGame.text = "Error" }
+                Log.e("API_CALL", "Error al llamar la API: ${e.message}", e)
+            }
+        }
+    }
+
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -88,7 +156,7 @@ class GameFragment: Fragment()  {
         _binding = FragmentGameBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        fetchDetection();
+        fetchObjection();
         Glide.with(this)
             .asGif()
             .load(R.drawable.download)
@@ -101,21 +169,9 @@ class GameFragment: Fragment()  {
             requestPermissions(REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
         val prefs = requireContext().getSharedPreferences("puntuaciones", Context.MODE_PRIVATE)
-        val playerName = arguments?.getString("playerName") ?: "SinNombre"
-        val idGame = arguments?.getString("IDGame") ?: "SinID"
-        val playerNameSG = arguments?.getString("playerNameSG") ?: "SinNombre"
-        val idGameSG = arguments?.getString("IDGameSG") ?: "SinID"
-        var key = "$playerName:$idGame"
-        if (playerName =="SinNombre")
-            key = "$playerNameSG:$idGameSG"
-        var score = prefs.getInt(key, 0)
-        Log.d("Juagdor"," $key ")
 
         binding.buttonTakePhoto.setOnClickListener {
             takePhoto()
-            score += 10
-            prefs.edit().putInt(key, score).apply()
-            binding.textScore.text = "$score"
         }
         binding.buttonExit.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_game_to_navigation_home)
@@ -125,10 +181,40 @@ class GameFragment: Fragment()  {
         return root
     }
 
-    private fun takePhoto() {
-        // Lógica para tomar una foto
-
+    val outputDirectory: File by lazy {
+        val mediaDir = requireContext().externalMediaDirs.firstOrNull()
+        File(mediaDir, "FinditApp").apply { if (!exists()) mkdirs() }
     }
+
+
+    private fun takePhoto() {
+        val imageCapture = imageCapture ?: return
+
+        val photoFile = File(
+            outputDirectory,
+            "${System.currentTimeMillis()}.jpg"
+        )
+
+        val outputOptions = ImageCapture.OutputFileOptions.Builder(photoFile).build()
+
+        imageCapture.takePicture(
+            outputOptions,
+            ContextCompat.getMainExecutor(requireContext()),
+            object : ImageCapture.OnImageSavedCallback {
+                override fun onError(exc: ImageCaptureException) {
+                    Log.e("CameraX", "Photo capture failed: ${exc.message}", exc)
+                }
+
+                override fun onImageSaved(output: ImageCapture.OutputFileResults) {
+                    val savedUri = Uri.fromFile(photoFile)
+                    Log.d("CameraX", "Photo saved: $savedUri")
+
+                    fetchDetection(photoFile.toUri())
+                }
+            }
+        )
+    }
+
 
     private fun actualizarCronometro() {
         val minutos = tiempo / 60
@@ -141,6 +227,7 @@ class GameFragment: Fragment()  {
             Log.e("GameFragment", "Binding is null, can't update UI")
         }
     }
+
 
     private fun startCamera() {
         val cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext())
@@ -157,14 +244,19 @@ class GameFragment: Fragment()  {
 
             try {
                 cameraProvider.unbindAll()
+
+                // Inicializa ImageCapture
+                imageCapture = ImageCapture.Builder().build()
+
                 val camera: Camera = cameraProvider.bindToLifecycle(
-                    viewLifecycleOwner, cameraSelector, preview
+                    viewLifecycleOwner, cameraSelector, preview, imageCapture
                 )
             } catch (e: Exception) {
                 Log.e("CameraX", "Error al iniciar la cámara", e)
             }
         }, ContextCompat.getMainExecutor(requireContext()))
     }
+
 
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(requireContext(), it) == PackageManager.PERMISSION_GRANTED
