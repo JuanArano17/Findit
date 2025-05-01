@@ -71,7 +71,7 @@
         android:id="@+id/textGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="164dp"
+        android:layout_marginStart="156dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/irishgrover"
         android:text="MOBIL!"
