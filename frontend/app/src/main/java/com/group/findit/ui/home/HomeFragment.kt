@@ -30,7 +30,7 @@ class HomeFragment : Fragment() {
         // Cargar GIF en el ImageView con Glide
         Glide.with(this)
             .asGif()
-            .load(R.drawable.download) // Asegúrate de que el archivo está en res/drawable o res/raw
+            .load(R.drawable.download)
             .into(binding.gifBackground)
 
         // Configurar botones
