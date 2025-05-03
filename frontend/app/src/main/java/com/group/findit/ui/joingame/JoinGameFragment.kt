@@ -32,7 +32,7 @@ class JoinGameFragment : Fragment() {
         Glide.with(this)
             .asGif()
             .load(R.drawable.download)
-            .into(binding.gifBackgroundJoin)
+            .into(binding.gifBackground)
 
         binding.backButtonJoin.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_join_to_navigation_home)
