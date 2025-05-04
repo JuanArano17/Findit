@@ -6,6 +6,7 @@
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
+  - [Execution](#execution)
 - [API Endpoints](#api-endpoints)
 - [Built With](#built-with)
 - [Authors](#authors)
@@ -42,6 +43,14 @@ Clone the repository and install the required dependencies:
 ```
 pip install -r requirements.txt
 pip install fastapi uvicorn
+```
+
+### Execution
+
+Run the main.py file or run the following line in bash:
+
+```
+uvicorn main:app --host 0.0.0.0 --port 8000 --timeout-keep-alive 60
 ```
 
 ## API Endpoints
