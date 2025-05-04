@@ -24,8 +24,6 @@ class JoinGameFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val joinGameViewModel =
-            ViewModelProvider(this).get(JoinGameViewModel::class.java)
 
         _binding = FragmentJoinGameBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -40,10 +38,10 @@ class JoinGameFragment : Fragment() {
 
         binding.buttonJoin.setOnClickListener {
             val nombreJugador = binding.playerName.text.toString()
-            val IDJuego = binding.gameId.text.toString()
+            val iDJuego = binding.gameId.text.toString()
             val bundle = Bundle()
             bundle.putString("playerName", nombreJugador)
-            bundle.putString("IDGame", IDJuego)
+            bundle.putString("IDGame", iDJuego)
             findNavController().navigate(R.id.action_navigation_join_to_navigation_game, bundle)
         }
         return root

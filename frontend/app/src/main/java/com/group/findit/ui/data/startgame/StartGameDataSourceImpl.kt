@@ -1,7 +1,6 @@
 package com.group.findit.ui.data.startgame
 
 import com.group.findit.ui.startgame.model.RemoteParticipantDto
-import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.ResponseBody
 import retrofit2.Response
