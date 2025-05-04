@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.camera.core.Camera
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
@@ -17,12 +18,14 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.group.findit.R
 import com.group.findit.databinding.FragmentGameBinding
 import com.group.findit.ui.data.game.model.ObjectResponse
+import com.group.findit.ui.home.HomeViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import java.util.concurrent.ExecutorService
@@ -84,7 +87,7 @@ class GameFragment: Fragment()  {
             } catch (e: Exception) {
                 _objectResponse.value = null
                 _binding?.let { safeBinding ->
-                    safeBinding.textGame.text = getString(R.string.error)
+                    safeBinding.textGame.text = "Error"
                 }
                 Log.e("API_CALL", "Error al llamar la API: ${e.message}", e)
             }
@@ -132,7 +135,7 @@ class GameFragment: Fragment()  {
                 prefs.edit().putInt(key, score).apply()
             } catch (e: Exception) {
                 _objectResponse.value = null
-                _binding?.let { it.textGame.text = getString(R.string.error) }
+                _binding?.let { it.textGame.text = "Error" }
                 Log.e("API_CALL", "Error al llamar la API: ${e.message}", e)
             }
         }
@@ -146,11 +149,12 @@ class GameFragment: Fragment()  {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        val homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         handler.post(actualizador)
         _binding = FragmentGameBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        fetchObjection()
+        fetchObjection();
         Glide.with(this)
             .asGif()
             .load(R.drawable.download)
@@ -162,6 +166,7 @@ class GameFragment: Fragment()  {
         } else {
             requestPermissions(REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS)
         }
+        val prefs = requireContext().getSharedPreferences("puntuaciones", Context.MODE_PRIVATE)
 
         binding.buttonTakePhoto.setOnClickListener {
             takePhoto()
@@ -236,7 +241,7 @@ class GameFragment: Fragment()  {
         cameraProviderFuture.addListener({
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
             val preview = Preview.Builder().build().also {
-                it.surfaceProvider = binding.previewView.surfaceProvider
+                it.setSurfaceProvider(binding.previewView.surfaceProvider)
             }
 
             val cameraSelector = CameraSelector.Builder()
@@ -249,6 +254,9 @@ class GameFragment: Fragment()  {
                 // Inicializa ImageCapture
                 imageCapture = ImageCapture.Builder().build()
 
+                val camera: Camera = cameraProvider.bindToLifecycle(
+                    viewLifecycleOwner, cameraSelector, preview, imageCapture
+                )
             } catch (e: Exception) {
                 Log.e("CameraX", "Error al iniciar la cámara", e)
             }
