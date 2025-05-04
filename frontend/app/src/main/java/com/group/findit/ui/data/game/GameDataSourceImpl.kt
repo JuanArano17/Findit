@@ -1,7 +1,6 @@
 package com.group.findit.ui.data.game
 
 import com.group.findit.ui.domain.model.Photo
-import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.ResponseBody
 import retrofit2.Response

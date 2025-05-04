@@ -8,6 +8,7 @@
 
     <!-- ImageView que contiene el GIF -->
     <ImageView
+        android:contentDescription="@string/gif_de_fondo"
         android:id="@+id/gifBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

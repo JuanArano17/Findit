@@ -1,11 +1,9 @@
 package com.group.findit.ui.game
 
-import com.group.findit.ui.game.GameRepository
 import android.util.Log
 import com.group.findit.ui.data.game.ConnectivityChecker
 import com.group.findit.ui.data.game.GameDataSourceImpl
 import com.group.findit.ui.domain.model.Photo
-import com.group.findit.ui.game.model.toDomain
 import com.group.findit.ui.utils.NoInternetException
 import retrofit2.Response
 import javax.inject.Inject

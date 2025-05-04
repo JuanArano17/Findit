@@ -2,7 +2,6 @@ package com.group.findit.ui.di
 
 import android.content.Context
 import android.net.ConnectivityManager
-import com.bumptech.glide.annotation.GlideModule
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

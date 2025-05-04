@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.group.findit.R
+import java.text.NumberFormat
+import java.util.Locale
 
 class ScoreAdapter(
     private val nombres: List<String>,
@@ -25,6 +27,7 @@ class ScoreAdapter(
 
     override fun onBindViewHolder(holder: ScoreViewHolder, position: Int) {
         holder.nombreJugador.text = nombres[position]
+        // como no va a haber numeros decimales entonces no se requiere internacionalizarlo
         holder.puntajeJugador.text = puntajes[position].toString()
     }
 

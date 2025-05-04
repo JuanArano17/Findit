@@ -6,14 +6,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.group.findit.R
 import com.group.findit.databinding.FragmentDashboardBinding
-import com.group.findit.ui.home.HomeViewModel
 
 class DashboardFragment: Fragment() {
     private var _binding: FragmentDashboardBinding? = null
@@ -23,9 +22,9 @@ class DashboardFragment: Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): ConstraintLayout? {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        val root: ConstraintLayout? = binding.root
 
         Glide.with(this)
             .asGif()

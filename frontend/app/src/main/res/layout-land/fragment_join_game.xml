@@ -9,6 +9,7 @@
 
     <!-- Fondo -->
     <ImageView
+        android:contentDescription="@string/gif_de_fondo"
         android:id="@+id/gifBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -29,6 +30,7 @@
         >
 
         <ImageView
+            android:contentDescription="@string/logo_findit"
             android:id="@+id/imageView2"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -43,6 +45,7 @@
 
         <!-- MOVIDO: Flecha de retroceso -->
         <ImageView
+            android:contentDescription="@string/boton_de_volver"
             android:id="@+id/backButtonJoin"
             android:layout_width="36dp"
             android:layout_height="38dp"
@@ -89,7 +92,7 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/custom_button"
             android:fontFamily="@font/irishgrover"
-            android:hint="524FA"
+            android:hint="@string/_524fa"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="20sp"
@@ -119,7 +122,7 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/custom_button"
             android:fontFamily="@font/irishgrover"
-            android:hint="Nombre"
+            android:hint="@string/nombre"
             android:textAlignment="center"
             android:textColorHint="@android:color/black"
             android:textSize="18sp"
