@@ -46,7 +46,7 @@ class GameFragment: Fragment()  {
     private var _binding: FragmentGameBinding? = null
     private val binding get() = _binding!!
     private lateinit var cameraExecutor: ExecutorService
-    private var tiempo = 8L // 30 segundos
+    private var tiempo = 30L // 30 segundos
     private val handler = android.os.Handler()
     private val _objectResponse = MutableStateFlow<ObjectResponse?>(null)
     val objectResponse: StateFlow<ObjectResponse?> = _objectResponse
