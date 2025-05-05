@@ -96,55 +96,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fbc3cfa9-9df7-40ff-a1f0-86f2d0432e5d" name="Changes" comment="mejoras de errores pequeños y mejora el dashboard en el landscape quedaria ver el game en landscape que esta muy feo">
-      <change beforePath="$PROJECT_DIR$/../.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/caches/deviceStreaming.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../backend/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/group/findit/ExampleInstrumentedTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/group/findit/ExampleInstrumentedTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/FindItApplication.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/FindItApplication.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/dashboard/DashboardFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/dashboard/DashboardFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/dashboard/DashboardViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/dashboard/DashboardViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/dashboard/ScoreAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/dashboard/ScoreAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/ApiClient.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/ApiClient.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/ApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/ApiService.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/ConnectivityChecker.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/ConnectivityChecker.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/DetectionRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/DetectionRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/GameDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/GameDataSource.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/GameDataSourceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/GameDataSourceImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/GameRetrofit.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/GameRetrofit.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/model/DetectionResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/model/DetectionResponse.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/model/ObjectResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/game/model/ObjectResponse.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/startgame/ConnectivityChecker.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/startgame/ConnectivityChecker.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/startgame/StartGameDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/startgame/StartGameDataSource.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/startgame/StartGameDataSourceImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/startgame/StartGameDataSourceImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/startgame/StartGameRetrofit.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/data/startgame/StartGameRetrofit.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/di/StartGameBinderModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/di/StartGameBinderModule.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/di/StartGameProviderModule.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/di/StartGameProviderModule.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/domain/model/Participant.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/domain/model/Participant.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/domain/model/Photo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/domain/model/Photo.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/game/GameFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/game/GameFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/game/GameRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/game/GameRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/game/GameRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/game/GameRepositoryImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/game/model/PhotoDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/game/model/PhotoDto.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/game/model/PhotoDtoMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/game/model/PhotoDtoMapper.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/home/HomeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/home/HomeFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/home/HomeViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/home/HomeViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/joingame/JoinGameFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/joingame/JoinGameFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/joingame/JoinGameViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/joingame/JoinGameViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/startgame/StartGameFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/startgame/StartGameFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/startgame/StartGameRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/startgame/StartGameRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/startgame/StartGameRepositoryImpl.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/startgame/StartGameRepositoryImpl.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/startgame/StartGameViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/startgame/StartGameViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/startgame/model/RemoteParticipantDto.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/startgame/model/RemoteParticipantDto.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/startgame/model/photoDtoMapper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/startgame/model/photoDtoMapper.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/utils/NoInternetException.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/group/findit/ui/utils/NoInternetException.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout-land/fragment_join_game.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout-land/fragment_join_game.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/xml/network_security_config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/xml/network_security_config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/group/findit/ExampleUnitTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/group/findit/ExampleUnitTest.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +106,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\Users\julia\.android\avd\Medium_Phone_2.avd)]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=PhysicalDevice, isTemplate=false, identifier=serial=R5CX81FQQ5R)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
