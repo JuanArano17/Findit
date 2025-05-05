@@ -40,13 +40,15 @@ import java.io.File
 import java.io.FileOutputStream
 import okhttp3.RequestBody.Companion.toRequestBody
 
-
-
+/**
+ * Fragment for the game screen.
+ * Handles UI interactions and API calls for game-related features.
+ */
 class GameFragment: Fragment()  {
     private var _binding: FragmentGameBinding? = null
     private val binding get() = _binding!!
     private lateinit var cameraExecutor: ExecutorService
-    private var tiempo = 30L // 30 segundos
+    private var tiempo = 45L // 30 segundos
     private val handler = android.os.Handler()
     private val _objectResponse = MutableStateFlow<ObjectResponse?>(null)
     val objectResponse: StateFlow<ObjectResponse?> = _objectResponse
@@ -94,6 +96,10 @@ class GameFragment: Fragment()  {
         }
     }
 
+    /**
+     * Fetches detection results from the API using an image.
+     * @param imageUri The URI of the image to be sent.
+     */
     fun fetchDetection(imageUri: Uri) {
         lifecycleScope.launch {
             try {
