@@ -25,4 +25,14 @@
     <string name="nombre">Nome</string>
     <string name="age">Idade</string>
     <string name="send">Enviar</string>
+    <string name="mobil">TELEFONE!</string>
+    <string name="_00_00">00:00</string>
+    <string name="zero">0</string>
+    <string name="_524fa">524FA</string>
+    <string name="id">ID</string>
+    <string name="error">Error</string>
+    <string name="boton_de_volver">Botao de volver</string>
+    <string name="logo_findit">Logo FindIt</string>
+    <string name="maria">Maria</string>
+    <string name="gif_de_fondo">Gif de Fundo</string>
 </resources>
