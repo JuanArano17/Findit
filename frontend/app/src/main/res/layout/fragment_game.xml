@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <Button
         android:id="@+id/buttonTakePhoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="108dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="8dp"
         android:text="@string/send"
+        android:background="@drawable/custom_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <ImageView
         android:contentDescription="@string/gif_de_fondo"
@@ -20,6 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:srcCompat="@drawable/download"
+        android:textColor="@color/purple_700"
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"/>
 
@@ -45,7 +48,7 @@
         android:layout_marginTop="60dp"
         android:fontFamily="@font/irishgrover"
         android:text="@string/zero"
-        android:textColor="#FF4347"
+        android:textColor="@color/red"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +62,7 @@
         android:layout_marginTop="60dp"
         android:fontFamily="@font/irishgrover"
         android:text="@string/_00_00"
-        android:textColor="#FF4347"
+        android:textColor="@color/red"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,10 +73,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="156dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="60dp"
         android:fontFamily="@font/irishgrover"
         android:text="@string/mobil"
-        android:textColor="#FF78E6"
+        android:textColor="@color/purple_500"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,8 +98,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="321dp"
-        android:layout_height="608dp"
+        android:layout_width="334dp"
+        android:layout_height="499dp"
         android:layout_marginStart="44dp"
         android:layout_marginTop="120dp"
         app:cardCornerRadius="16dp"
@@ -106,7 +109,7 @@
         <androidx.camera.view.PreviewView
             android:id="@+id/previewView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="499dp"
             android:scaleType="fitCenter">
 
         </androidx.camera.view.PreviewView>
@@ -114,15 +117,15 @@
 
     <Button
         android:id="@+id/buttonExit"
-        android:layout_width="116dp"
-        android:layout_height="63dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="93dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="304dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/custom_button"
-        android:padding="12dp"
+        android:padding="0dp"
         android:text="@string/exit"
         android:textColor="@android:color/white"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
