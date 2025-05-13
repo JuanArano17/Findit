@@ -10,14 +10,7 @@ from recognition_model import load_yolov8_model
 from data_collection import save_image_for_training
 
 HOUSE_ITEMS = [
-    'backpack', 'umbrella', 'handbag', 'tie', 'suitcase', 'bottle',
-    'wine glass', 'cup', 'fork', 'knife', 'spoon', 'bowl', 'banana',
-    'apple', 'sandwich', 'orange', 'broccoli', 'carrot', 'hot dog',
-    'pizza', 'donut', 'cake', 'chair', 'couch', 'potted plant', 'bed',
-    'dining table', 'toilet', 'tv', 'laptop', 'mouse', 'remote',
-    'keyboard', 'cell phone', 'microwave', 'oven', 'toaster', 'sink',
-    'refrigerator', 'book', 'clock', 'vase', 'scissors', 'teddy bear',
-    'hair drier', 'toothbrush'
+    'bottle', 'cup', 'fork', 'knife', 'spoon', 'chair', 'tv', 'laptop', 'mouse', 'remote', 'keyboard', 'book'
 ]
 
 app = FastAPI()
@@ -90,4 +83,4 @@ async def get_object():
     return {"word": random_object}
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="127.0.0.1", port=8000)

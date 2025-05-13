@@ -1,15 +1,17 @@
 package com.group.findit
 
 import org.junit.Test
-
 import org.junit.Assert.*
 
 /**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
+ * Example unit test class for the FindIt app.
+ * Executes tests on the development machine (host).
  */
 class ExampleUnitTest {
+
+    /**
+     * Tests a simple addition operation.
+     */
     @Test
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
