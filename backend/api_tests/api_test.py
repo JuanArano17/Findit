@@ -1,6 +1,6 @@
 import requests
 import matplotlib.pyplot as plt
-import os  # added
+import os
 
 def test_endpoint(iterations=1024):
     url = "http://localhost:8000/detection"
@@ -10,7 +10,7 @@ def test_endpoint(iterations=1024):
     count_false = 0
 
     # Cargamos la imagen .jpeg en memoria usando la ruta relativa
-    image_path = os.path.join(os.path.dirname(__file__), "b.jpeg")  # changed
+    image_path = os.path.join(os.path.dirname(__file__), "test_image.jpeg")  # changed
     with open(image_path, "rb") as f:  # changed
         image_bytes = f.read()
 
