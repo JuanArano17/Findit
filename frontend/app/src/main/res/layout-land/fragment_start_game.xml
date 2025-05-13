@@ -1,0 +1,212 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ui.home.HomeFragment"
+    >
+
+    <!-- Fondo -->
+    <ImageView
+        android:contentDescription="@string/gif_de_fondo"
+        android:id="@+id/gifBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:src="@drawable/download" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/firstBox"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/secondBox"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintWidth_percent="0.5"
+        android:fitsSystemWindows="true"
+        >
+
+        <ImageView
+            android:contentDescription="@string/findit_logo"
+            android:id="@+id/imageView2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/findit_logo"
+            android:scaleType="centerInside"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_percent="0.8"
+            app:layout_constraintHeight_percent="0.8" />
+
+        <!-- MOVIDO: Flecha de retroceso -->
+        <ImageView
+            android:contentDescription="@string/boton_de_volver"
+            android:id="@+id/backButton"
+            android:layout_width="36dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/backbutton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Contenedor de campos y botón (derecha) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/secondBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/firstBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintWidth_percent="0.5">
+        <TextView
+            android:id="@+id/textPlayerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/irishgrover"
+            android:text="@string/player_name"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/playerNameInput"
+            android:layout_width="248dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/custom_button"
+            android:fontFamily="@font/irishgrover"
+            android:padding="10dp"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textPlayerName" />
+
+
+        <TextView
+            android:id="@+id/textAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/irishgrover"
+            android:text="@string/age"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/idInput"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/playerNameInput" />
+
+        <EditText
+            android:id="@+id/ageInput"
+            android:layout_width="110dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="1dp"
+            android:background="@drawable/custom_button"
+            android:fontFamily="@font/irishgrover"
+            android:padding="10dp"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/idInput"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textAge" />
+
+        <TextView
+            android:id="@+id/textId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/irishgrover"
+            android:text="@string/id"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ageInput"
+            app:layout_constraintTop_toBottomOf="@id/playerNameInput" />
+
+        <EditText
+            android:id="@+id/idInput"
+            android:layout_width="110dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="1dp"
+            android:background="@drawable/custom_button"
+            android:fontFamily="@font/irishgrover"
+            android:padding="10dp"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ageInput"
+            app:layout_constraintTop_toBottomOf="@id/textAge" />
+
+        <TextView
+            android:id="@+id/textNationality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/irishgrover"
+            android:text="@string/nationality"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ageInput" />
+
+        <EditText
+            android:id="@+id/nationalityInput"
+            android:layout_width="248dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/custom_button"
+            android:fontFamily="@font/irishgrover"
+            android:padding="10dp"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textNationality" />
+
+        <Button
+            android:id="@+id/buttonJoin"
+            android:layout_width="163dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/custom_button"
+            android:fontFamily="@font/irishgrover"
+            android:padding="12dp"
+            android:text="@string/create"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nationalityInput" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

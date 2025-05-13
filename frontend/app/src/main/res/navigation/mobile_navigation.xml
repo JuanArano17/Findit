@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.group.findit.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_start_game"
+            app:destination="@id/navigation_start_game"/>
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_join_game"
+            app:destination="@id/navigation_join_game" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_start_game"
+        android:name="com.group.findit.ui.startgame.StartGameFragment"
+        android:label="StartGame"
+        tools:layout="@layout/fragment_start_game" >
+        <action
+            android:id="@+id/action_navigation_start_to_navigation_home"
+            app:destination="@id/navigation_home"/>
+        <action
+            android:id="@+id/action_navigation_start_to_navigation_game"
+            app:destination="@id/navigation_game"/>
+        <argument
+            android:name="playerName"
+            app:argType="string" />
+        <argument
+            android:name="IDGame"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_join_game"
+        android:name="com.group.findit.ui.joingame.JoinGameFragment"
+        android:label="JoinGame"
+        tools:layout="@layout/fragment_join_game" >
+        <action
+            android:id="@+id/action_navigation_join_to_navigation_home"
+            app:destination="@id/navigation_home"/>
+        <action
+            android:id="@+id/action_navigation_join_to_navigation_game"
+            app:destination="@id/navigation_game"/>
+        <argument
+            android:name="playerName"
+            app:argType="string" />
+        <argument
+            android:name="IDGame"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_game"
+        android:name="com.group.findit.ui.game.GameFragment"
+        android:label="Game"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_navigation_game_to_navigation_home"
+            app:destination="@id/navigation_home"/>
+        <action
+            android:id="@+id/action_navigation_game_to_navigation_dashboard"
+            app:destination="@id/navigation_dashboard"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.group.findit.ui.dashboard.DashboardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_navigation_dashboard_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+</navigation>
+
+
+
+
+
+

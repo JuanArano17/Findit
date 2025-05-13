@@ -1,0 +1,202 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ui.home.HomeFragment">
+
+    <!-- ImageView que contiene el GIF -->
+
+    <!-- Logo principal -->
+
+    <ImageView
+        android:contentDescription="@string/gif_de_fondo"
+        android:id="@+id/gifBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageView
+        android:id="@+id/appLogo"
+        android:layout_width="264dp"
+        android:layout_height="274dp"
+        android:layout_marginTop="40dp"
+        android:contentDescription="@string/findit_logo"
+        android:src="@drawable/findit_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/gifBackground" />
+
+    <!-- Texto "Nombre de jugador" -->
+    <TextView
+        android:id="@+id/textPlayerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/player_name"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/irishgrover"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/appLogo" />
+
+    <EditText
+        android:id="@+id/playerNameInput"
+        android:layout_width="248dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/custom_button"
+        android:padding="10dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/irishgrover"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.546"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textPlayerName" />
+
+    <!-- Edad -->
+
+    <!-- Nacionalidad -->
+
+    <TextView
+        android:id="@+id/textAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/irishgrover"
+        android:text="@string/age"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.317"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/playerNameInput" />
+
+    <TextView
+        android:id="@+id/idText"
+        android:layout_width="46dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/irishgrover"
+        android:text="@string/id"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.739"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/playerNameInput" />
+
+    <EditText
+        android:id="@+id/idInput"
+        android:layout_width="110dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/irishgrover"
+        android:padding="10dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.754"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textAge" />
+
+    <EditText
+        android:id="@+id/ageInput"
+        android:layout_width="110dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/irishgrover"
+        android:padding="10dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.295"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textAge" />
+
+    <TextView
+        android:id="@+id/textNationality"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/irishgrover"
+        android:text="@string/nationality"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idInput" />
+
+    <!-- Botón de "Unirse" -->
+    <EditText
+        android:id="@+id/nationalityInput"
+        android:layout_width="248dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/custom_button"
+        android:fontFamily="@font/irishgrover"
+        android:padding="10dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.546"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textNationality" />
+
+    <Button
+        android:id="@+id/buttonJoin"
+        android:layout_width="201dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/custom_button"
+        android:padding="12dp"
+        android:text="@string/create"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/irishgrover"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nationalityInput" />
+
+    <!-- Imagen de regresar -->
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="34dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:contentDescription="@string/return_to_home"
+        android:src="@drawable/backbutton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

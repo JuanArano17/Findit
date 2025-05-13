@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FindIt</string>
+    <string name="title_home">Início</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notificações</string>
+    <string name="start">Iniciar Jogo</string>
+    <string name="join">Entrar no Jogo</string>
+    <string name="or">ou...</string>
+    <string name="game_ID">ID da Partida</string>
+    <string name="player_name">Nome do Jogador</string>
+    <string name="join_game">Entrar!</string>
+    <string name="player_count">Quantidade de Jogadores</string>
+    <string name="create">Criar</string>
+    <string name="exit">Sair</string>
+    <string name="score">Pontuação</string>
+    <string name="time">Tempo</string>
+    <string name="congratulations">PARABÉNS!</string>
+    <string name="winner">ganhou a partida</string>
+    <string name="scoreboard">Tabela de pontuação</string>
+    <string name="return_to_home">Retornar à página inicial</string>
+    <string name="nationality">Nacionalidade</string>
+    <string name="findit_logo">FindIt Logo</string>
+    <string name="_0">0</string>
+    <string name="nombre">Nome</string>
+    <string name="age">Idade</string>
+    <string name="send">Enviar</string>
+    <string name="mobil">TELEFONE!</string>
+    <string name="_00_00">00:00</string>
+    <string name="zero">0</string>
+    <string name="_524fa">524FA</string>
+    <string name="id">ID</string>
+    <string name="error">Error</string>
+    <string name="boton_de_volver">Botao de volver</string>
+    <string name="logo_findit">Logo FindIt</string>
+    <string name="maria">Maria</string>
+    <string name="gif_de_fondo">Gif de Fundo</string>
+</resources>

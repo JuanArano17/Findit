@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">FindIt</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="start">Start Game\n</string>
+    <string name="join">Join Game\n</string>
+    <string name="or">or...</string>
+    <string name="game_ID">Game ID</string>
+    <string name="player_name">Player Name</string>
+    <string name="join_game">Join!</string>
+    <string name="player_count">Player Count</string>
+    <string name="create">Create</string>
+    <string name="exit">Exit</string>
+    <string name="score">Score</string>
+    <string name="time">Time</string>
+    <string name="congratulations">CONGRATULATIONS!</string>
+    <string name="winner">has won the game</string>
+    <string name="scoreboard">Scoreboard</string>
+    <string name="findit_logo">FindIt Logo</string>
+    <string name="_0">0</string>
+    <string name="nombre">Name</string>
+    <string name="return_to_home">Return to Home</string>
+    <string name="nationality">Nationality</string>
+    <string name="age">Age</string>
+    <string name="send">Send</string>
+    <string name="gif_de_fondo">Bckground Gif</string>
+    <string name="boton_de_volver">Back button</string>
+    <string name="logo_findit">Logo FindIt</string>
+    <string name="maria">Maria</string>
+    <string name="mobil">MOBILE!</string>
+    <string name="_00_00">00:00</string>
+    <string name="zero">0</string>
+    <string name="_524fa">524FA</string>
+    <string name="id">ID</string>
+    <string name="error">Error\n</string>
+</resources>

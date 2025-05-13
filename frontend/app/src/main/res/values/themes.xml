@@ -1,0 +1,11 @@
+<resources>
+    <style name="Theme.FindIt" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/violet_500</item>
+        <item name="colorPrimaryVariant">@color/violet_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/violet_200</item>
+        <item name="colorSecondaryVariant">@color/violet_700_variant</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <item name="android:statusBarColor">@color/violet_500</item>
+    </style>
+</resources>
